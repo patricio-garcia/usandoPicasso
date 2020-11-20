@@ -52,22 +52,22 @@ public class PokeAdapter extends RecyclerView.Adapter<PokeAdapter.PokeVH> {
         private ImageView imgPoke;
         private TextView tvId;
         private TextView tvName;
-        //private TextView tvCategoria;
+        private TextView tvCategoria;
 
         public PokeVH(@NonNull View itemView) {
             super(itemView);
             imgPoke = itemView.findViewById(R.id.imgPokemon);
             tvId = itemView.findViewById(R.id.tvId);
             tvName = itemView.findViewById(R.id.tvNombre);
-            //tvCategoria = itemView.findViewById(R.id.tvCategoria);
+            tvCategoria = itemView.findViewById(R.id.tvCategoria);
         }
 
         public void bind(@NonNull Pokemon pokemon) {
             Picasso.get().setIndicatorsEnabled(true);
-            Picasso.get().load(pokemon.getImageSrc()).resize(100,100).into(imgPoke);
+            Picasso.get().load(pokemon.getImageSrc()).resize(90,90).into(imgPoke);
             tvId.setText(pokemon.getId());
             tvName.setText(pokemon.getName());
-            //tvCategoria.setLabelFor(pokemon.getLabels());
+            tvCategoria.setText(pokemon.getLabels().toString());
         }
     }
 }
